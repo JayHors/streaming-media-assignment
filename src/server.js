@@ -18,7 +18,7 @@ const urlHandles = {
 
 function onRequest(request, response) {
   console.log(request.url);
-  const parsedUrl = new url.URL(request.url,"https://media-streaming-jay-98741.herokuapp.com/");
+  const parsedUrl = new url.URL(request.url, 'https://media-streaming-jay-98741.herokuapp.com/');
 
   if (urlHandles[parsedUrl.pathname]) {
     urlHandles[parsedUrl.pathname](request, response);
