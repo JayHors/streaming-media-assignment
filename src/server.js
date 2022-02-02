@@ -10,11 +10,15 @@ const urlHandles = {
   '/index': htmlHandler.getIndex,
   '/index.html': htmlHandler.getIndex,
   '/party.mp4': mediaHandler.getParty,
+  '/page2': htmlHandler.getIndex2,
+  '/bling.mp3': mediaHandler.getBling,
+  '/bird.mp4': mediaHandler.getBird,
+  '/page3': htmlHandler.getIndex3,
 };
 
 function onRequest(request, response) {
   console.log(request.url);
-  const parsedUrl = url.parse(request.url);
+  const parsedUrl = new url.URL(request.url,"https://media-streaming-jay-98741.herokuapp.com/");
 
   if (urlHandles[parsedUrl.pathname]) {
     urlHandles[parsedUrl.pathname](request, response);
